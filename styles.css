@@ -1,0 +1,356 @@
+body {
+    direction: rtl;
+    padding: 0;
+    margin: 0;
+    background-color: var(--mainBgColor);
+
+}
+/*start name*/
+.name1 {
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* تجعل المحتوى يمتلئ بالارتفاع الكامل للصفحة */
+    text-align: center;
+    /* توسيط النص داخل المحتوى */
+    word-spacing: 7px; /* يمكنك تعديل هذه القيمة حسب ما تحتاجه */
+
+}
+
+.name1 p {
+    font-size: 20px;
+    /* حجم النص */
+    line-height: 40px;
+    margin-bottom: 20px;
+    /* هامش أسفل الفقرة */
+    max-width: 1200px;
+    /* تحديد العرض الأقصى للنص */
+    margin: 0 auto;
+    /* توسيط النص أفقيًا */
+}
+/*end name*/
+/*start mohamed*/
+.name2 {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    word-spacing: 7px; /* يمكنك تعديل هذه القيمة حسب ما تحتاجه */
+
+}
+
+.name2 p {
+    font-size: 40px;
+    line-height: 40px;
+
+    /* حجم النص */
+}
+.name2 span {
+    font-size: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+/* end mohamed */
+:root {
+    --mainColor: #DAC5A7;
+    --mainBgColor: #181716;
+    --hoverColor: #2b2828;
+    scroll-behavior: unset;
+}
+
+
+
+.mainColor {
+    color: var(--mainColor);
+}
+
+.mainFont {
+    font-family: 'Satoshi-Light';
+}
+
+.brownBg {
+    background-color: var(--mainBgColor);
+    display: none;
+    padding: 10px 20px;
+    z-index: 1454;
+}
+
+/*!     Scrollbar      */
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 5px;
+
+}
+
+::-webkit-scrollbar-track {
+    background: var(--mainBgColor);
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--mainColor);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6d5d50;
+}
+
+::-webkit-scrollbar-button {
+    background-color: var(--mainColor);
+}
+
+/*!---------------------------- */
+/*!      Loading Spinner     */
+.Loadingspinner {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 64684646;
+}
+
+.loader {
+    transform: rotateZ(45deg);
+    perspective: 1000px;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader:before,
+.loader:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1s spin linear infinite;
+}
+
+.loader:after {
+    color: #FF3D00;
+    transform: rotateY(70deg);
+    animation-delay: .4s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotateZ(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotateZ(360deg);
+    }
+}
+
+@keyframes rotateccw {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+@keyframes spin {
+
+    0%,
+    100% {
+        box-shadow: .2em 0px 0 0px currentcolor;
+    }
+
+    12% {
+        box-shadow: .2em .2em 0 0 currentcolor;
+    }
+
+    25% {
+        box-shadow: 0 .2em 0 0px currentcolor;
+    }
+
+    37% {
+        box-shadow: -.2em .2em 0 0 currentcolor;
+    }
+
+    50% {
+        box-shadow: -.2em 0 0 0 currentcolor;
+    }
+
+    62% {
+        box-shadow: -.2em -.2em 0 0 currentcolor;
+    }
+
+    75% {
+        box-shadow: 0px -.2em 0 0 currentcolor;
+    }
+
+    87% {
+        box-shadow: .2em -.2em 0 0 currentcolor;
+    }
+}
+
+/*! Navbar */
+.myNavbar {
+    height: 100px;
+    margin-top: 40px;
+    margin: 2px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: solid 1px var(--mainColor);
+    border-radius: 15px;
+    width: 700px;
+    z-index: 56466544;
+    position: relative;
+    /* تجعل الشريط التنقل يتحرك بشكل مستقل عن الصفحة */
+    text-align: center;
+
+}
+
+.myNavbar button:disabled {
+    border: none;
+    outline: none;
+}
+
+.myNavbar button {
+    display: none !important;
+    cursor: unset;
+}
+
+.myNavbar button i {
+    cursor: pointer;
+}
+
+.myNavbar ul {
+    display: flex;
+}
+
+.myNavbar ul li {
+    list-style: none;
+}
+
+.myNavbar ul li a {
+    text-decoration: none;
+    color: var(--mainColor);
+    overflow: hidden;
+    padding: 5px 5px;
+}
+
+.myNavbar a::before {
+    content: '';
+    height: 2px;
+    width: 0;
+    background-color: var(--mainColor);
+    position: absolute;
+    bottom: -7px;
+    transition: all 0.5s;
+}
+
+.active::before {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: var(--mainColor);
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+}
+
+.myNavbar li:hover a::before {
+    left: 0;
+}
+
+@media (max-width:999px) {
+    div :where(h1, h2) {
+        font-family: 'Satoshi-Light';
+        letter-spacing: 10px;
+        color: var(--mainColor);
+        font-size: 60px;
+    }
+
+    #home p {
+        font-family: 'Satoshi-Light';
+        color: var(--mainColor);
+        font-size: 30px;
+    }
+
+    .myNavbar {
+        width: 70%;
+        height: 60px;
+    }
+
+    .myNavbar ul {
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        background-color: var(--mainBgColor);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        border: 1px solid var(--mainColor);
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    .myNavbar ul {
+        padding: 10px 0px;
+    }
+
+    .myNavbar ul li {
+        padding: 10px 0px;
+    }
+
+    .myNavbar a::before {
+        bottom: 3px;
+    }
+
+    .active:before {
+        bottom: 3px;
+    }
+
+    .myNavbar button {
+        display: flex !important;
+    }
+
+    ul {
+        display: none;
+    }
+
+    .colors {
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+}
+
+@media (max-width:900px) {
+    .colors {
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+}
+
+@media (max-width:600px) {
+    .myNavbar {
+        width: 80%;
+        height: 50px;
+    }
+
+    .myNavbar button {
+        display: flex !important;
+    }
+}
+
+
+
