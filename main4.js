@@ -1,4 +1,26 @@
 $(document).ready(function () {
+    // البقية من الكود الخاص بك
+
+    // قم بإعطاء الزر القائمة القدرة على تبديل القائمة عند النقر
+    $('#toggleNavbar').click(function () {
+        if ($('ul').is(':hidden')) {
+            $('ul').slideDown(500, function () {
+                // تم تنفيذ السحب للأسفل، الآن قم بإضافة فئة "opened" إلى الزرار
+                $(this).addClass('opened');
+            });
+        } else {
+            $('ul').slideUp(500, function () {
+                // تم تنفيذ السحب لأعلى، الآن قم بإزالة فئة "opened" من الزرار
+                $(this).removeClass('opened');
+            });
+        }
+    });
+
+    // البقية من الكود الخاص بك
+});
+
+
+$(document).ready(function () {
 
     $('.Loadingspinner').fadeOut(3000)
 
@@ -20,20 +42,64 @@ $(document).ready(function () {
     });
 
 
-    checkWhichSectionNavbar()
-    $(window).scroll(function () {
+    function checkWhichSectionNavbar() {
+        let home = $('li')[0];
+        let jewelry = $('li')[1];
+        let counter = $('li')[2];
+        let Contact = $('li')[3];
 
-        checkWhichSectionNavbar()
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+            $('li').removeClass('active');
+            if (Contact) {
+                $(Contact).addClass('active');
+            }
+        } else if ($('#contact').length > 0 && $(window).scrollTop() >= $('#contact').offset().top - 1) {
+            $('li').removeClass('active');
+            if (Contact) {
+                $(Contact).addClass('active');
+            }
+        } else if ($('#tour').length > 0 && $(window).scrollTop() >= $('#tour').offset().top) {
+            $('li').removeClass('active');
+            if (counter) {
+                $(counter).addClass('active');
+            }
+        } else if ($('#jewelry').length > 0 && $(window).scrollTop() >= $('#jewelry').offset().top) {
+            $('li').removeClass('active');
+            if (jewelry) {
+                $(jewelry).addClass('active');
+            }
+        } else {
+            $('li').removeClass('active');
+            if (home) {
+                $(home).addClass('active');
+            }
+        }
+    }
 
+
+
+    //? another 2 ways
+    window.addEventListener('beforeunload', function () {
+        this.scrollTo(0, 0)
     })
+
+    window.onbeforeunload = function () {
+        this.scrollTo(0, 0)
+    }
+    //! ------------------------------------
+
+
+
+    //! Navbar 
 
 
     $('ul li a').click(function () {
         let section = $(this).attr('href');
-        let sectionTop = $(section).offset().top
-        $('html,body').animate({ scrollTop: sectionTop }, { duration: 1000, queue: false })
-    })
-
+        let sectionTop = $(section).offset().top;
+        $('html,body').animate({ scrollTop: sectionTop }, { duration: 500, queue: false });
+    });
+    
+    
     $('#toggleNavbar').click(function () {
 
         $('ul').slideToggle(500, function () {
@@ -52,6 +118,16 @@ $(document).ready(function () {
 
 
     })
+
+    //! ------------------------------------
+
+
+
+
+
+
+    //! leftSideBar 
+
 
     if (localStorage.getItem('color') != null) {
         let mainColorStorage = JSON.parse(localStorage.getItem('color'))
@@ -158,7 +234,16 @@ $(document).ready(function () {
 
     //! ------------------------------------
 
-
+    $('#toggleNavbar').click(function () {
+        // اختبار ما إذا كانت القائمة مخفية أم مرئية وتغييرها
+        if ($('ul').is(':hidden')) {
+            $('ul').slideDown(500); // إذا كانت مخفية، قم بإظهارها بتأثير انزلاق
+            $(this).addClass('opened'); // إضافة فئة "opened" إلى الزرار عند فتح القائمة
+        } else {
+            $('ul').slideUp(500); // إذا كانت مرئية، قم بإخفائها بتأثير انزلاق
+            $(this).removeClass('opened'); // إزالة فئة "opened" من الزرار عند إغلاق القائمة
+        }
+    });
 
 
 
@@ -185,36 +270,8 @@ $(document).ready(function () {
 
 
 
-    function checkWhichSectionNavbar() {
-        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-            $('li').removeClass('active')
-            let Contact = $('li')[3]
-            $(Contact).addClass('active');
-        }
 
-        //! Not Wroking
-        else if ($(window).scrollTop() >= $('#contact').offset().top - 1) {
-            $('li').removeClass('active')
-            let Contact = $('li')[3]
-            $(Contact).addClass('active');
-        }
-        else if ($(window).scrollTop() >= $('#tour').offset().top) {
-            $('li').removeClass('active')
-            let counter = $('li')[2]
-            $(counter).addClass('active');
-        }
-        else if ($(window).scrollTop() >= $('#jewelry').offset().top) {
-            $('li').removeClass('active')
-            let jewelry = $('li')[1]
-            $(jewelry).addClass('active');
-        }
-        else {
-            $('li').removeClass('active')
-            let home = $('li')[0]
-            $(home).addClass('active');
-        }
+}
 
-    }
-
-})
+)
 

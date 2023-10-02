@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/imege/7d3923a6b2c27f7b80d6301b545f1404.jpg" rel="icon" />
-    <link rel="stylesheet" href="/css/all.min.css">
+
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,8 +96,21 @@
 
     </main>
     <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="/js/jquery-3.7.1.min.js"></script>
     <script src="/main4.js"></script>
+    <script>
+// اجلب زر القائمة والقائمة نفسها
+const toggleButton = document.getElementById('toggleNavbar');
+const navbar = document.getElementById('navbar');
+
+// قم بتعيين حدث النقر على زر القائمة
+toggleButton.addEventListener('click', () => {
+    // قم بتبديل الحالة المفتوحة/المغلقة للناف بار
+    navbar.classList.toggle('open');
+});
+
+    </script>
+
 </body>
 
 </html>
